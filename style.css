@@ -1,5 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+/* CSS vars */
+:root {
+	--button-width: 12vw;
+	--padding-left-desktop: 4rem;
+}
+
+/* CSS reset */
 * {
 	padding: 0;
 	margin: 0;
-	box-sizing: content-box;
+	box-sizing: border-box;
+}
+
+/* Custom scrollbar */
+body {
+	overflow-y: auto;
+}
+body::-webkit-scrollbar {
+	width: 1.3rem;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: hsla(0, 23%, 92%, 0.377);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: linear-gradient(hsl(0, 80%, 86%) 0%, hsl(0, 85%, 62%) 100%);
+	border-radius: 50px;
+}
+
+/* styling header */
+header {
+	padding: 2rem;
+}
+
+header img {
+	width: min(30vw, 8rem);
+}
+
+/* styling hero img */
+.hero {
+	width: 100%;
+}
+
+/* styling main */
+main {
+	font-family: "Josefin Sans", sans-serif;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	padding: 2rem;
+}
+
+main h1 {
+	font-size: 2.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.7rem;
+	line-height: 1.1;
+	color: hsl(0, 6%, 24%);
+	padding: 1rem;
+}
+
+main h1 span {
+	font-weight: 300;
+	color: hsla(0, 89%, 21%, 0.596);
+	opacity: 0.65;
+}
+
+main p {
+	font-weight: 400;
+	line-height: 1.5;
+	color: hsla(0, 89%, 21%, 0.596);
+}
+
+/* Styling the email form */
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3vh;
+}
+
+form input {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 1rem;
+
+	width: 19rem;
+	padding: 0.9rem;
+	padding-left: 1.5rem;
+	padding-right: var(--button-width);
+
+	border: 1px solid hsl(0, 80%, 86%);
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	border-radius: 50px;
+}
+
+form input:focus {
+	outline: none;
+	border: 2px solid hsl(0, 74%, 74%);
+}
+
+form button {
+	border: 0;
+	border-radius: 500px;
+	width: var(--button-width);
+	padding: 0.7rem 0px;
+	margin-left: calc(var(--button-width) * -1);
+	transition: 300ms ease all;
+
+	background: linear-gradient(
+		135deg,
+		hsl(0, 80%, 86%) 0%,
+		hsl(0, 74%, 74%) 100%
+	);
+
+	-webkit-box-shadow: 0px 19px 47px 5px rgba(189, 49, 49, 0.45);
+	-moz-box-shadow: 0px 19px 47px 5px rgba(189, 49, 49, 0.45);
+	box-shadow: 0px 19px 47px 5px rgba(189, 49, 49, 0.45);
+}
+
+form button:hover {
+	background: linear-gradient(
+		135deg,
+		hsl(0, 100%, 93%) 0%,
+		hsl(0, 100%, 83%) 100%
+	);
+}
+
+@media (min-width: 1150px) {
+	/* layout */
+	body {
+		background-image: url(./images/bg-pattern-desktop.svg);
+		min-height: 100vh;
+		display: grid;
+		grid-template-areas:
+			"header hero"
+			"main hero";
+		grid-template-rows: 1fr 7fr;
+		grid-template-columns: auto max-content;
+	}
+
+	header {
+		grid-area: header;
+	}
+
+	.hero {
+		grid-area: hero;
+		height: 100vh;
+	}
+
+	main {
+		grid-area: main;
+	}
+
+	/* styling */
+	:root {
+		--button-width: min(6vw, 5rem);
+	}
+
+	header {
+		padding-left: var(--padding-left-desktop);
+	}
+
+	main {
+		justify-content: flex-start;
+		text-align: left;
+		padding-left: var(--padding-left-desktop);
+		padding-top: 6rem;
+	}
+
+	main h1 {
+		padding-left: 0px;
+		font-size: 4vw;
+	}
+
+	main p {
+		max-width: 27vw;
+	}
+
+	form {
+		justify-content: flex-start;
+	}
+
+	form input {
+		width: min(27rem, 30vw);
+	}
+}
+
+@media (min-width: 1200px) {
+	:root {
+		--padding-left-desktop: 7vw;
+	}
+}
+
+@media (min-width: 1300px) {
+	:root {
+		--padding-left-desktop: 10vw;
+	}
+}
+
+@media (min-width: 1700px) {
+	:root {
+		--p-font-size: 1.1vw;
+	}
+
+	p {
+		font-size: var(--p-font-size);
+		max-width: 30vw;
+	}
+
+	form input {
+		width: 27vw;
+	}
 }
