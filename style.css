@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
 
+/* 
+	TODO: 
+		-implement error message on invalid email input
+*/
+
 /* CSS vars */
 :root {
 	--button-width: 12vw;
