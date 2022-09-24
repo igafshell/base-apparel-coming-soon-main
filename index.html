@@ -37,16 +37,20 @@
 				launch deals.
 			</p>
 			<form action="#">
-				<input
-					type="email"
-					placeholder="Email Address"
-					aria-label="Email Address"
-					aria-describedby="basic-addon2"
-				/>
+				<div>
+					<input
+						type="email"
+						id="email"
+						placeholder="Email Address"
+						aria-label="Email Address"
+						aria-describedby="basic-addon2"
+					/>
+					<label for="email">Please provide a valid email</label>
+				</div>
 
 				<button type="submit">
-					<img src="./images/icon-arrow.svg" alt="Arrow icon" />
-				</button>
+					<img src="./images/icon-arrow.svg" alt="Arrow icon" /></button
+				><br />
 			</form>
 		</main>
 		<script
@@ -67,23 +71,12 @@
 				}
 			}
 
-			$("form").submit((e) => {});
-
-			form.addEventListener(
-				"focus",
-				(event) => {
-					event.target.style.background = "pink";
-				},
-				true
-			);
-
-			form.addEventListener(
-				"blur",
-				(event) => {
-					event.target.style.background = "";
-				},
-				true
-			);
+			$("form").submit((e) => {
+				if (!$("form").checkValidity()) {
+					// e.preventDefault();
+					return false;
+				}
+			});
 
 			// for testing purposes
 			window.addEventListener("resize", (e) => {
