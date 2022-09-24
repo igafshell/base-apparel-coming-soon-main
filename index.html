@@ -36,7 +36,7 @@
 				Add your email below to stay up-to-date with announcements and our
 				launch deals.
 			</p>
-			<form action="#">
+			<form method="GET">
 				<div>
 					<input
 						type="email"
@@ -71,14 +71,14 @@
 				}
 			}
 
-			$("form").submit((e) => {
-				if (!$("form").checkValidity()) {
-					// e.preventDefault();
-					return false;
+			const form = $("form")[0];
+
+			form.addEventListener("submit", (e) => {
+				if ($("form input")[0].value === "" || !form.checkValidity()) {
+					e.preventDefault();
 				}
 			});
 
-			// for testing purposes
 			window.addEventListener("resize", (e) => {
 				onLoad();
 			});
